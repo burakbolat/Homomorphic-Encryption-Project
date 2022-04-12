@@ -18,7 +18,7 @@ def main():
     ax.set_ylabel('time (ms)')
     ax.set_title("Time analysis with respect to num of nodes")
     ax.grid()
-    plt.savefig("results/first.png")
+    plt.savefig("results/time_node_count_embedded.png")
     
     fig.clf()
     fig, ax = plt.subplots(1)
@@ -29,6 +29,6 @@ def main():
     ax.set_ylabel('Mse')
     ax.set_title("Mse with respect to num of nodes")
     ax.grid()
-    plt.savefig("results/second.png")
+    plt.savefig("results/mse_node_count.png")
     
 if __name__=="__main__": main()
