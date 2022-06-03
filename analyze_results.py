@@ -2,8 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-def main():
-    results = pd.read_csv('results.csv')
+def save_analysis(results, postfix=""):
     group = results.groupby('NodeCount')
 
     x_axis = results['NodeCount'].unique()
@@ -18,7 +17,7 @@ def main():
     ax.set_ylabel('time (ms)')
     ax.set_title("Time analysis with respect to num of nodes")
     ax.grid()
-    plt.savefig("results/time_node_count_embedded.png")
+    plt.savefig("results/time_node_count_embedded"+postfix+".png")
     
     fig.clf()
     fig, ax = plt.subplots(1)
@@ -29,6 +28,14 @@ def main():
     ax.set_ylabel('Mse')
     ax.set_title("Mse with respect to num of nodes")
     ax.grid()
-    plt.savefig("results/mse_node_count.png")
+    plt.savefig("results/mse_node_count"+postfix+".png")
+
+def main():
+    results = pd.read_csv('results.csv')
+    save_analysis(results)
+    resultss = pd.read_csv('resultss.csv')
+    save_analysis(resultss, "s")
+
+    
     
 if __name__=="__main__": main()
